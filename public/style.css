@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --bg-dark: #000000;
   --gold: #bdae82;
@@ -370,6 +371,12 @@ body {
   flex-direction: row;
   justify-content: space-between;
   gap: 40px;
+}
+@media screen and (max-width: 320px) {
+  .industries-container {
+    flex-direction: column; /* Секции идут одна под другой */
+    gap: 20px; /* Уменьшаем расстояние между элементами */
+  }
 }
 .industries-container .industry-card {
   display: flex;
