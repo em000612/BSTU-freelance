@@ -48,6 +48,176 @@ body {
   height: 24px;
 }
 
+.get-in-touch-section {
+  padding: 32px 1% 64px 1%;
+}
+
+.get-in-touch-container {
+  background: linear-gradient(65.7deg, #000000 33.33%, #7876F2 125.28%);
+  padding: 80px 4% 128px 4%;
+  border-radius: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-description {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+  .form-description {
+    flex-direction: column;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+.form-description .get-in-touch-title {
+  flex: 1;
+  color: var(--white);
+  font-size: 48pt;
+  line-height: 1.3;
+  font-family: "Abril Fatface", serif;
+}
+@media screen and (max-width: 768px) {
+  .form-description .get-in-touch-title {
+    font-size: 32pt;
+  }
+}
+@media screen and (max-width: 320px) {
+  .form-description .get-in-touch-title {
+    font-size: 24pt;
+  }
+}
+.form-description .get-in-touch-description {
+  font-family: "Abril Fatface", serif;
+  flex: 1;
+  color: var(--light-opacity50);
+  font-size: 16pt;
+  line-height: 1.5;
+}
+.form-description .get-in-touch-description .get-in-touch-link {
+  text-decoration: underline;
+  color: var(--white);
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .form-description .get-in-touch-description {
+    font-size: 12pt;
+  }
+}
+@media screen and (max-width: 320px) {
+  .form-description .get-in-touch-description {
+    font-size: 10pt;
+  }
+}
+
+.forms-container {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+  .forms-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form-wrapper {
+  flex: 1;
+}
+.form-wrapper .form-container {
+  display: flex;
+  flex-direction: column;
+}
+.form-wrapper .form-container .text-field {
+  display: block;
+  background-color: transparent;
+  color: var(--white);
+  border: 0;
+  outline: 0;
+  padding-bottom: 16px;
+  font-size: 16pt;
+  border-bottom: 1px solid var(--white);
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0%;
+  margin-bottom: 24px;
+}
+.form-wrapper .form-container .text-field:last-of-type {
+  margin-bottom: 0;
+}
+.form-wrapper .form-button {
+  align-self: center;
+  width: 100%;
+  background-color: var(--white);
+  border: 0;
+}
+.form-wrapper .form-button .form-button-label {
+  color: var(--blue);
+}
+.form-wrapper .form-button .form-button-icon {
+  color: var(--blue);
+}
+.form-wrapper .form-button:hover {
+  opacity: 0.9;
+}
+
+.margin {
+  margin-top: 24px;
+}
+
+.margin-top80 {
+  margin-top: 80px;
+}
+
+.outline-button {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 80px;
+  margin-bottom: 24px;
+}
+.outline-button .form-button-label {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  font-size: 14pt;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+.outline-button .form-button-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--white);
+}
+
+.mw-180 {
+  max-width: 180px;
+}
+
+.mw-280 {
+  max-width: 280px;
+}
+
+.mw-348 {
+  max-width: 348px;
+}
+
+::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
 .footer {
   border-top: 1px solid var(--light-opacity50);
   padding: 24px 4% 80px 4%;
