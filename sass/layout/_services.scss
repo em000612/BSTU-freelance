@@ -1,0 +1,98 @@
+.services-container {
+    padding-inline: 2%;
+
+    & .services-title {
+        font-family: "Aclonica", sans-serif;
+        color: var(--light);
+        font-size: 32pt;
+        margin-bottom: 64px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 24pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 20pt;
+        }
+    }
+}
+
+.grid-container {
+    position: relative;
+    
+    & .grid-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-self: center;
+        gap: 32px 16px;
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+
+            >:nth-last-child(-n+2) {
+                display: none;
+            }
+        }
+    
+        @media screen and (max-width: 320px) {
+            grid-template-columns: 1fr;
+
+            >:nth-last-child(-n+5) {
+                display: none;
+            }
+        }
+    }
+}
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+    background-color: var(--bg-dark);
+    width: 100%;
+    max-width: 200px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    & .card-text {
+        font-family: Arial, sans-serif;
+        font-weight: 700;
+        color: var(--white);
+        padding-inline: 16px;
+        font-size: 14pt;
+        margin-bottom: 32px;
+    }
+
+    & .card-image {
+        padding-inline: 6px;
+        border-radius: 12px;
+        width: 100%;
+    }
+}
+
+.arrows-container {
+    position: absolute;
+    top: calc(50% - 24px);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    & .arrow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    & :hover {
+        cursor: pointer;
+    }
+}
