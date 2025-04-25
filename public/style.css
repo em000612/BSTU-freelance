@@ -1,1 +1,49 @@
-/*# sourceMappingURL=style.css.map */
+:root {
+  --bg-dark: #000000;
+  --gold: #bdae82;
+  --dark-blue: #0d0c55;
+  --white: #fff;
+  --blue: #2e2bd0;
+  --light-blue: #9695e7;
+  --light: #2F353F;
+  --light-opacity70: #6d7178;
+  --light-opacity50: #96999e;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  max-width: 1024px;
+  margin-inline: auto;
+  background-color: var(--white);
+}
+
+body {
+  background-color: var(--white);
+}
+
+.custom-button {
+  padding: 12px 32px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.custom-button .custom-label {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  font-size: 14pt;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+.custom-button .custom-icon {
+  width: 24px;
+  height: 24px;
+}/*# sourceMappingURL=style.css.map */
