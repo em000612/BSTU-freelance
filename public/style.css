@@ -50,7 +50,7 @@ body {
 }
 
 .header {
-  background: url("/assets/png/background.png");
+  background: url("/public/assets/png/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -150,7 +150,7 @@ body {
 }
 
 .header {
-  background: url("/assets/png/background.png");
+  background: url("/public/assets/png/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -265,7 +265,7 @@ body {
 }
 @media screen and (max-width: 320px) {
   .services-container .services-title {
-    font-size: 20pt;
+    font-size: 18pt;
   }
 }
 
@@ -344,6 +344,80 @@ body {
   cursor: pointer;
 }
 
+.container {
+  width: 1024px;
+  height: 33px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Устанавливаем расстояние 5px между кнопками */
+}
+
+.btn {
+  width: 140px;
+  height: 34px; /* Начальная высота кнопок */
+  font-size: 20px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  border: 2px solid #2E2BD0;
+  background: transparent;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.btn-economic {
+  color: #2E2BD0;
+}
+
+.btn-it {
+  color: black;
+  background: #2E2BD0;
+  border-color: #2E2BD0;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/* Медиазапрос для экранов с шириной до 768px */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+  }
+  .btn {
+    font-size: 18px;
+    height: 32px; /* Уменьшаем высоту на 4 пикселя */
+    line-height: 32px; /* Выравнивание текста по вертикали */
+  }
+}
+/* Медиазапрос для экранов с шириной до 320px */
+@media (max-width: 320px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+  }
+  .btn {
+    font-size: 16px;
+    height: 28px; /* Уменьшаем высоту на 4 пикселя */
+    line-height: 28px; /* Выравнивание текста по вертикали */
+  }
+}
 .industries-section {
   padding-inline: 2%;
   padding-top: 80px;
