@@ -1,0 +1,93 @@
+/* Стили для активной кнопки */
+.btn-active {
+  background-color: #0d0c55;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Плавное исчезновение и появление изображения */
+.card-image {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card-image.hidden {
+  opacity: 0;
+}
+
+/* Плавное появление/исчезновение карточек */
+.card-item {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Стили для отображения карточек в виде сетки */
+.grid-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.grid-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  transition: transform 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container .grid-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .grid-container .grid-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Добавим скрытие карточек с плавным переходом */
+.grid-content.hidden {
+  transform: translateX(-100%);
+}
+
+/* Управляющие стрелки */
+.arrows-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  transform: translateY(-50%);
+}
+
+.grid-container:hover .arrows-container {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.arrow-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-container:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
