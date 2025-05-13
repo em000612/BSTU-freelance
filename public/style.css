@@ -412,66 +412,6 @@ body {
     line-height: 28px; /* Выравнивание текста по вертикали */
   }
 }
-/*здесь у меня началась 7 лаба */
-/* Стили для активной кнопки */
-.btn-active {
-  background-color: #0d0c55;
-  color: white;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Плавное исчезновение и появление изображения */
-.card-image {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.card-image.hidden {
-  opacity: 0;
-}
-
-/* Плавное появление/исчезновение карточек */
-.card-item {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.card-item.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* для отображения карточек в виде сетки */
-.grid-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 32px;
-}
-
-.grid-content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  transition: transform 0.5s ease-in-out;
-}
-
-@media screen and (max-width: 768px) {
-  .grid-container .grid-content {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (max-width: 320px) {
-  .grid-container .grid-content {
-    grid-template-columns: 1fr;
-  }
-}
-/* скрытие карточек с плавным переходом */
-.grid-content.hidden {
-  transform: translateX(-100%);
-}
-
 .industries-section {
   padding-inline: 2%;
   padding-top: 80px;
@@ -1169,4 +1109,64 @@ body {
 
 .menu__item:hover {
   text-decoration: underline;
+}
+
+/*здесь у меня началась 7 лаба */
+/* Стили для активной кнопки */
+.btn-active {
+  background-color: #0d0c55;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Плавное исчезновение и появление изображения */
+.card-image {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card-image.hidden {
+  opacity: 0;
+}
+
+/* Плавное появление/исчезновение карточек */
+.card-item {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* для отображения карточек в виде сетки */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.grid-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  transition: transform 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container .grid-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 320px) {
+  .grid-container .grid-content {
+    grid-template-columns: 1fr;
+  }
+}
+/* скрытие карточек с плавным переходом */
+.grid-content.hidden {
+  transform: translateX(-100%);
 }/*# sourceMappingURL=style.css.map */
