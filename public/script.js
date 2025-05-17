@@ -22,100 +22,109 @@ const cardData = {
 
 function getVisibleCount() {
   const width = window.innerWidth;
-  if (width <= 320) return 1;
-  if (width <= 768) return 4;
-  return 6;
+  
+  return 6; 
 }
 
 function shuffleArray(arr) {
-  //для случайного перемешивания массива
-  for (let i = arr.length - 1; i > 0; i--) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]]; 
+    [copy[i], copy[j]] = [copy[j], copy[i]];
   }
+  return copy;
 }
 
-function rotateCards(direction = 'left') {
+function generateCardHTML(card) {
+  return `
+    <div class="card-item">
+      <p class="card-text">${card.text}</p>
+      <img class="card-image" src="${card.img}" alt="">
+    </div>
+  `;
+}
+
+function animateSlide(direction = 'left') {
   if (isAnimating) return;
   isAnimating = true;
 
-  const visibleCount = getVisibleCount();
+  const visibleCount = getVisibleCount(); // 1, 4, or 6
   const service = document.querySelector('.btn-active').dataset.service;
   const data = cardData[service];
+  let newData = [];
 
-  // обновляетсяя индекс по направлению
-  if (direction === 'left') {
-    currentIndex = (currentIndex + visibleCount) % data.length;
+  if (visibleCount === 6) {
+
+    newData = shuffleArray(data);
+  } else if (visibleCount === 4) {
+  
+    const shuffled = shuffleArray(data);
+    newData = shuffled.slice(0, 4);
   } else {
-    currentIndex = (currentIndex - visibleCount + data.length) % data.length;
+ 
+    if (direction === 'left') {
+      currentIndex = (currentIndex + 1) % data.length;
+    } else {
+      currentIndex = (currentIndex - 1 + data.length) % data.length;
+    }
+    newData = [data[currentIndex]];
   }
 
-  const gridContent = document.querySelector('.grid-content');
-  const cards = document.querySelectorAll('.card-item');
+  const gridContainer = document.querySelector('.grid-container');
+  const original = document.querySelector('.grid-content');
+  const clone = original.cloneNode(false);
 
-  gridContent.classList.add('hidden');
+  clone.classList.add('grid-content');
+  clone.style.position = 'absolute';
+  clone.style.top = '0';
+  clone.style.left = '0';
+  clone.style.width = '100%';
+  clone.style.display = 'grid';
+  clone.style.gridTemplateColumns = getComputedStyle(original).gridTemplateColumns;
+  clone.style.transition = 'transform 0.5s ease-in-out';
+  clone.style.transform = direction === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
+
+ 
+  newData.forEach(card => clone.insertAdjacentHTML('beforeend', generateCardHTML(card)));
+  gridContainer.appendChild(clone);
+
+  requestAnimationFrame(() => {
+    original.style.transition = 'transform 0.5s ease-in-out';
+    original.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
+    clone.style.transform = 'translateX(0)';
+  });
 
   setTimeout(() => {
-    for (let i = 0; i < cards.length; i++) {
-      const dataIndex = (currentIndex + i) % data.length;
-      cards[i].querySelector('.card-text').textContent = data[dataIndex].text;
-      cards[i].querySelector('.card-image').src = data[dataIndex].img;
-    }
-
-    gridContent.classList.remove('hidden');
+    original.remove();
+    clone.removeAttribute('style');
+    clone.classList.add('grid-content');
     isAnimating = false;
   }, 500);
 }
 
 
 document.querySelector('.arrow-container-left').addEventListener('click', () => {
-  rotateCards('right');
+  animateSlide('right');
 });
-
 document.querySelector('.arrow-container-right').addEventListener('click', () => {
-  rotateCards('left');
+  animateSlide('left');
 });
-
-document.querySelectorAll('.btn-economic').forEach(button => {
-  button.addEventListener('click', (event) => {
-    document.querySelectorAll('.btn-economic').forEach(btn => {
-      btn.classList.remove('btn-active');
-    });
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', (event) => {
+    document.querySelectorAll('.btn').forEach(b => b.classList.remove('btn-active'));
     event.target.classList.add('btn-active');
+    currentIndex = 0; 
+    animateSlide();
   });
 });
 
-document.querySelector('.container').addEventListener('click', (event) => {
-  if (event.target.classList.contains('btn')) {
-    const service = event.target.dataset.service;
 
-    //активный стиль кнопки
-    document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('btn-active'));
-    event.target.classList.add('btn-active');
-
-    //смена карточек с плавным перелистыванием
-    updateCards(service);
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.btn-economic').classList.add('btn-active');
+  animateSlide();
 });
 
-function updateCards(service) {
-  const cards = document.querySelectorAll('.card-item');
-  const newData = cardData[service];
-  const gridContent = document.querySelector('.grid-content');
 
-  //плавное исчезновение карточек
-  gridContent.classList.add('hidden');
-
-  //после 500мс сменить контент и показать снова
-  setTimeout(() => {
-    cards.forEach((card, i) => {
-      const textEl = card.querySelector('.card-text');
-      const imgEl = card.querySelector('.card-image');
-      textEl.textContent = newData[i].text;
-      imgEl.src = newData[i].img;
-    });
-
-    //плавно отображаются карточки обратно
-    gridContent.classList.remove('hidden');
-  }, 500);
-}
+window.addEventListener('resize', () => {
+  animateSlide(); 
+});
