@@ -1,5 +1,4 @@
-let isAnimating = false;
-let currentIndex = 0;
+let currentService = 'economic';
 
 const cardData = {
   economic: [
@@ -20,111 +19,64 @@ const cardData = {
   ]
 };
 
-function getVisibleCount() {
-  const width = window.innerWidth;
-  
-  return 6; 
+const cardItems = document.querySelectorAll('.grid-content .card-item');
+const arrowLeft = document.querySelector('.arrow-container-left');
+const arrowRight = document.querySelector('.arrow-container-right');
+
+function getDisplayCount() {
+  if (window.innerWidth >= 1024) return 6;
+  if (window.innerWidth >= 768) return 4;
+  return 1;
 }
 
-function shuffleArray(arr) {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
+function redrawCards() {
+  const count = getDisplayCount();
+  const currentData = cardData[currentService].slice(0, count);
 
-function generateCardHTML(card) {
-  return `
-    <div class="card-item">
-      <p class="card-text">${card.text}</p>
-      <img class="card-image" src="${card.img}" alt="">
-    </div>
-  `;
-}
-
-function animateSlide(direction = 'left') {
-  if (isAnimating) return;
-  isAnimating = true;
-
-  const visibleCount = getVisibleCount(); // 1, 4, or 6
-  const service = document.querySelector('.btn-active').dataset.service;
-  const data = cardData[service];
-  let newData = [];
-
-  if (visibleCount === 6) {
-
-    newData = shuffleArray(data);
-  } else if (visibleCount === 4) {
-  
-    const shuffled = shuffleArray(data);
-    newData = shuffled.slice(0, 4);
-  } else {
- 
-    if (direction === 'left') {
-      currentIndex = (currentIndex + 1) % data.length;
+  cardItems.forEach((item, index) => {
+    if (currentData[index]) {
+      item.style.display = 'block';
+      item.querySelector('p').textContent = currentData[index].text;
+      item.querySelector('img').src = currentData[index].img;
     } else {
-      currentIndex = (currentIndex - 1 + data.length) % data.length;
+      item.style.display = 'none';
     }
-    newData = [data[currentIndex]];
-  }
-
-  const gridContainer = document.querySelector('.grid-container');
-  const original = document.querySelector('.grid-content');
-  const clone = original.cloneNode(false);
-
-  clone.classList.add('grid-content');
-  clone.style.position = 'absolute';
-  clone.style.top = '0';
-  clone.style.left = '0';
-  clone.style.width = '100%';
-  clone.style.display = 'grid';
-  clone.style.gridTemplateColumns = getComputedStyle(original).gridTemplateColumns;
-  clone.style.transition = 'transform 0.5s ease-in-out';
-  clone.style.transform = direction === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
-
- 
-  newData.forEach(card => clone.insertAdjacentHTML('beforeend', generateCardHTML(card)));
-  gridContainer.appendChild(clone);
-
-  requestAnimationFrame(() => {
-    original.style.transition = 'transform 0.5s ease-in-out';
-    original.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
-    clone.style.transform = 'translateX(0)';
   });
-
-  setTimeout(() => {
-    original.remove();
-    clone.removeAttribute('style');
-    clone.classList.add('grid-content');
-    isAnimating = false;
-  }, 500);
 }
 
+function shiftCards(direction) {
+  const w = getDisplayCount();
+  const data = cardData[currentService];
 
-document.querySelector('.arrow-container-left').addEventListener('click', () => {
-  animateSlide('right');
-});
-document.querySelector('.arrow-container-right').addEventListener('click', () => {
-  animateSlide('left');
-});
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', (event) => {
-    document.querySelectorAll('.btn').forEach(b => b.classList.remove('btn-active'));
-    event.target.classList.add('btn-active');
-    currentIndex = 0; 
-    animateSlide();
+  if (direction === 'left') {
+    cardData[currentService] = data.slice(w).concat(data.slice(0, w));
+  } else if (direction === 'right') {
+    cardData[currentService] = data.slice(-w).concat(data.slice(0, -w));
+  }
+
+  redrawCards();
+}
+
+function changeService(event) {
+  if (!event.target.classList.contains('btn')) return;
+
+  currentService = event.target.dataset.service;
+
+  // Highlight active button
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.toggle('btn-active', btn.dataset.service === currentService);
   });
-});
 
+  redrawCards();
+}
 
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.btn-economic').classList.add('btn-active');
-  animateSlide();
-});
+// Event listeners
+document.querySelector('.container').addEventListener('click', changeService);
+arrowLeft.addEventListener('click', () => shiftCards('left'));
+arrowRight.addEventListener('click', () => shiftCards('right'));
 
+// Initial draw
+redrawCards();
 
-window.addEventListener('resize', () => {
-  animateSlide(); 
-});
+// Optional: update on resize
+window.addEventListener('resize', redrawCards);
