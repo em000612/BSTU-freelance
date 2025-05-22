@@ -1,0 +1,76 @@
+.industries-section {
+    padding-inline: 2%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    & .industries-title {
+        font-family: "Aclonica", sans-serif;
+        font-size: 45pt;
+        color: var(--light);
+
+        @media screen and (max-width: 768px) {
+            font-size: 32pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 24pt;
+        }
+    }
+}
+
+.industries-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media screen and (max-width: 320px) {
+        flex-direction: column; /* Секции идут одна под другой */
+        gap: 20px; /* Уменьшаем расстояние между элементами */
+    }
+
+    & .industry-card {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        & .industry-image {
+            height: 41px;
+            align-self: start;
+        }
+
+        & .industry-title {
+            font-family: "Aboreto", system-ui;
+            text-transform: uppercase;
+            font-size: 24pt;
+            border-bottom: 1px solid var(--light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            color: var(--light);
+
+            @media screen and (max-width: 768px) {
+                font-size: 20pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 18pt;
+            }
+        }
+
+        & .industry-description {
+            font-family: "Abril Fatface", serif;
+            color: var(--light-opacity70);
+            font-size: 16pt;
+            padding-top: 32px;
+
+            @media screen and (max-width: 768px) {
+                font-size: 14pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 12pt;
+            }
+        }
+    }
+}
