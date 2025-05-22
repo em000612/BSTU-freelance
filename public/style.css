@@ -249,87 +249,213 @@ body {
   width: 100%;
 }
 
-.services-container {
+.container {
   padding-inline: 2%;
 }
-.services-container .services-title {
+.container .services-title {
   font-family: "Aclonica", sans-serif;
   color: var(--light);
   font-size: 32pt;
   margin-bottom: 64px;
 }
 @media screen and (max-width: 768px) {
-  .services-container .services-title {
+  .container .services-title {
     font-size: 24pt;
   }
 }
 @media screen and (max-width: 320px) {
-  .services-container .services-title {
+  .container .services-title {
     font-size: 18pt;
   }
 }
 
-.grid-container {
+.slider {
   position: relative;
+  height: auto;
 }
-.grid-container .grid-content {
+.slider .count_6 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  align-self: center;
-  gap: 32px 16px;
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  gap: 32px 16px;
+  padding: 30px 0;
+  justify-items: center;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (max-width: 1024px) {
+  .slider .count_6 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 16px;
+  }
 }
 @media screen and (max-width: 768px) {
-  .grid-container .grid-content {
-    grid-template-columns: 1fr 1fr;
+  .slider .count_6 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
   }
-  .grid-container .grid-content > :nth-last-child(-n+2) {
+  .slider .count_6 > :nth-child(1),
+  .slider .count_6 > :nth-child(2) {
+    display: block;
+  }
+  .slider .count_6 > :nth-child(n+3) {
     display: none;
   }
 }
 @media screen and (max-width: 320px) {
-  .grid-container .grid-content {
+  .slider .count_6 {
     grid-template-columns: 1fr;
+    gap: 16px 8px;
   }
-  .grid-container .grid-content > :nth-last-child(-n+5) {
+  .slider .count_6 > :nth-child(n+2) {
     display: none;
   }
+}
+.slider .slider_left,
+.slider .slider_right {
+  display: none;
+}
+.slider .slider_left.active,
+.slider .slider_center.active,
+.slider .slider_right.active {
+  display: block;
 }
 
 .card-item {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   border-radius: 16px;
   background-color: var(--bg-dark);
-  width: 100%;
-  max-width: 200px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 25px 12px;
+  box-sizing: border-box;
 }
 .card-item .card-text {
   font-family: Arial, sans-serif;
   font-weight: 700;
   color: var(--white);
-  padding-inline: 16px;
   font-size: 14pt;
+  padding-inline: 16px;
   margin-bottom: 32px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .card-item .card-text {
+    font-size: 10pt;
+  }
 }
 .card-item .card-image {
+  width: 100%;
   padding-inline: 6px;
   border-radius: 12px;
+}
+
+#photo__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#photo__slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo__container {
+  display: flex;
+  position: absolute;
+  width: 300%;
+  left: -100%;
+}
+
+#slider-controls-left,
+#slider-controls-right {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: calc(50% - 24px);
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 2;
+}
+
+#slider-controls-left {
+  left: 16px;
+}
+
+#slider-controls-right {
+  right: 16px;
+}
+
+.photo__item-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 64px 16px;
   width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+@media screen and (max-width: 768px) {
+  .photo__item-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 320px) {
+  .photo__item-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.button_color {
+  color: white;
+  background-color: #0d0c55;
+}
+
+.button {
+  width: 140px;
+  height: 34px;
+  font-size: 20px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  border: 2px solid #0d0c55;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+.button .button:hover {
+  opacity: 0.8;
+}
+.button:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  .button {
+    font-size: 18px;
+    height: 32px;
+    line-height: 32px;
+  }
+}
+@media (max-width: 320px) {
+  .button {
+    font-size: 16px;
+    height: 28px;
+    line-height: 28px;
+  }
 }
 
 .arrows-container {
   position: absolute;
-  top: calc(50% - 24px);
-  display: flex;
+  top: 50%;
   width: 100%;
+  display: flex;
   justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 .arrows-container .arrow-container {
   display: flex;
@@ -338,78 +464,42 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
-}
-.arrows-container :hover {
+  background: white;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
-
-.container {
-  width: 1024px;
-  height: 33px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 5px; /* Устанавливаем расстояние 5px между кнопками */
-}
-
-.btn {
-  width: 140px;
-  height: 34px; /* Начальная высота кнопок */
-  font-size: 20px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  line-height: 36px;
-  text-align: center;
-  border: 2px solid #0d0c55;
-  background: transparent;
-  cursor: pointer;
-  word-wrap: break-word;
-}
-
-.btn-economic {
-  color: #0d0c55;
-}
-
-.btn:hover {
+.arrows-container .arrow-container:hover {
   opacity: 0.8;
 }
-
-.btn:focus {
-  outline: none;
+.arrows-container .arrow-container img {
+  width: 20px;
+  height: 20px;
 }
 
-/* Медиазапрос для экранов с шириной до 768px */
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    height: 100%;
-    padding: 10px 0;
+.slide-container-left {
+  animation-name: slide-container-left;
+  animation-duration: 1s;
+}
+
+@keyframes slide-container-left {
+  0% {
+    left: -100%;
   }
-  .btn {
-    font-size: 18px;
-    height: 32px; /* Уменьшаем высоту на 4 пикселя */
-    line-height: 32px; /* Выравнивание текста по вертикали */
+  100% {
+    left: 0%;
   }
 }
-/* Медиазапрос для экранов с шириной до 320px */
-@media (max-width: 320px) {
-  .container {
-    width: 100%;
-    height: 100%;
-    padding: 10px 0;
+.slide-container-right {
+  animation-name: slide-container-right;
+  animation-duration: 1s;
+}
+
+@keyframes slide-container-right {
+  0% {
+    left: -100%;
   }
-  .btn {
-    font-size: 16px;
-    height: 28px; /* Уменьшаем высоту на 4 пикселя */
-    line-height: 28px; /* Выравнивание текста по вертикали */
+  100% {
+    left: -200%;
   }
 }
 .industries-section {
@@ -1171,15 +1261,55 @@ body {
   transform: translateX(-100%);
 }
 
-/* Стили для активной кнопки */
-.btn-active {
-  background-color: #0d0c55;
-  color: white;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Сетка карточек */
+.grid-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Плавное исчезновение и появление изображения */
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  max-width: 200px;
+  height: 260px;
+  transition: transform 0.3s, opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+}
+
+.card-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-text {
+  margin-top: 12px;
+  text-align: left;
+  font-weight: 500;
+}
+
 .card-image {
+  width: 157px;
+  height: 148px;
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
@@ -1188,50 +1318,30 @@ body {
   opacity: 0;
 }
 
-/* Плавное появление/исчезновение карточек */
-.card-item {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.card-item.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Стили для отображения карточек в виде сетки */
-.grid-container {
+/* Слайдер */
+#slider-container {
   position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  width: 100%;
+}
+
+#slider-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 32px;
+  position: relative;
+  width: 100%;
+  transition: transform 0.5s ease;
 }
 
-.grid-content {
+.slider-item {
+  flex: 0 0 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  transition: transform 0.5s ease-in-out;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .grid-container .grid-content {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (max-width: 320px) {
-  .grid-container .grid-content {
-    grid-template-columns: 1fr;
-  }
-}
-/* Добавим скрытие карточек с плавным переходом */
-.grid-content.hidden {
-  transform: translateX(-100%);
-}
-
-/* Управляющие стрелки */
+/* Стрелки */
 .arrows-container {
   position: absolute;
   top: 50%;
@@ -1242,8 +1352,8 @@ body {
   padding: 0 16px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
   transform: translateY(-50%);
+  transition: opacity 0.4s ease;
 }
 
 .grid-container:hover .arrows-container {
@@ -1252,13 +1362,38 @@ body {
 }
 
 .arrow-container {
-  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .arrow-container:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Адаптив */
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .grid-content,
+  .slider-item {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 320px) {
+  .grid-content {
+    grid-template-columns: 1fr;
+  }
 }/*# sourceMappingURL=style.css.map */
