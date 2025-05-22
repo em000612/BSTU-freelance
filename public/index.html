@@ -57,62 +57,34 @@
             </header>
 
             <main>
-                <section class="services-container">
-                   
-                      
+              <section class="photo">
+                <div class="container">
                     <h2 class="services-title">What are our services?</h2>
-                    <div class="container">
-                        <div class="button-container">
-                          <button class="btn btn-economic">Economic</button>
-                        </div>
-                        <div class="button-container">
-                          <button class="btn btn-economic">IT</button>
-                        </div>
-                      </div>
-                    <div class="grid-container">
-                        <div class="grid-content">
-                            <div class="card-item">
-                                <p class="card-text">Website development</p>
-                                <img class="card-image" src="./assets/png/grid/1.png" alt="" >
-                            </div>
 
-                            <div class="card-item">
-                                <p class="card-text">Logo Design</p>
-                                <img class="card-image" src="./assets/png/grid/2.png" alt="" >
-                            </div>
+                    <div id="photo__buttons">
+                        <button class="button button_color" onClick="changeFocus(this)">Economic</button>
+                        <button class="button" onClick="changeFocus(this)">IT</button>
+                    </div>
 
-                            <div class="card-item">
-                                <p class="card-text">SEO</p>
-                                <img class="card-image" src="./assets/png/grid/3.png" alt="" >
-                            </div>
-
-                            <div class="card-item">
-                                <p class="card-text">Architecture & Interior Design</p>
-                                <img class="card-image" src="./assets/png/grid/4.png" alt="" >
-                            </div>
-
-                            <div class="card-item">
-                                <p class="card-text">Voice Over</p>
-                                <img class="card-image" src="./assets/png/grid/5.png" alt="" >
-                            </div>
-
-                            <div class="card-item">
-                                <p class="card-text">UGC Videos</p>
-                                <img class="card-image" src="./assets/png/grid/6.png" alt="" >
-                            </div>
+                    <div id="photo__slider">
+                        <div id="photo__content" class="photo__container">
+                            <div id="slider-left-container" class="photo__item-container"></div>
+                            <div id="slider-center-container" class="photo__item-container"></div>
+                            <div id="slider-right-container" class="photo__item-container"></div>
                         </div>
 
-                        <div class="arrows-container">
-                            <div class="arrow-container arrow-container-left">
-                                <img class="arrow-icon" src="./assets/svg/arrow_left.svg" alt="left arrow" >
-                            </div>
-    
-                            <div class="arrow-container arrow-container-right">
-                                <img class="arrow-icon" src="./assets/svg/arrow_right.svg" alt="right arrow" >
-                            </div>
+                        <div id="slider-controls-left" class="arrow-container arrow-container-left">
+                            <img class="arrow-icon" src="./assets/svg/arrow_left.svg" alt="left arrow">
+                        </div>
+
+                        <div id="slider-controls-right"
+                            class="arrow-container arrow-container-right">
+                            <img class="arrow-icon" src="./assets/svg/arrow_right.svg" alt="right arrow">
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
+
 
                 <section class="industries-section">
                     <h2 class="industries-title">Industries</h2>
@@ -254,17 +226,6 @@
                 </div>
             </footer>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
