@@ -1396,4 +1396,94 @@ body {
   .grid-content {
     grid-template-columns: 1fr;
   }
+}
+.calculator-container {
+  padding: 48px 4%;
+  background-color: var(--brand-red);
+}
+.calculator-container .calculator-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+.calculator-form-container {
+  display: flex;
+  flex-direction: column;
+}
+.calculator-form-container .calculator-form-button {
+  width: 100%;
+  max-width: 200px;
+  background-color: var(--brand-black);
+  border: 0;
+  outline: none;
+  padding: 8px 32px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--brand-white);
+  align-self: center;
+  font-family: inherit;
+}
+.calculator-form-container .calculator-form-button:hover {
+  filter: brightness(90%);
+}
+.calculator-form-container .calculator-text-field-container {
+  display: flex;
+  flex-direction: row;
+}
+.calculator-form-container .calculator-text-field-container .calculator-text-field-label {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  background-color: var(--brand-black);
+  padding: 8px 56px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--brand-white);
+}
+@media screen and (max-width: 768px) {
+  .calculator-form-container .calculator-text-field-container .calculator-text-field-label {
+    width: 100%;
+    max-width: none;
+  }
+}
+.calculator-form-container .calculator-text-field-container .calculator-text-field {
+  width: 100%;
+  background-color: var(--brand-white);
+  border: 0;
+  outline: 0;
+  padding: 8px 12px;
+  font-size: 1.25rem;
+}
+.calculator-form-container .calculator-text-field-container .calculator-select {
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+@media screen and (max-width: 768px) {
+  .calculator-form-container .calculator-text-field-container {
+    flex-direction: column;
+  }
+}
+.calculator-form-container .calculate-container {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+.calculator-form-container .calculate-container .calculator-text-field-readonly {
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--brand-white);
+  border: 0;
+  outline: 0;
+  padding: 8px 12px;
+  font-size: 1.25rem;
+}
+
+.calculator-form-container > :not(:last-child) {
+  margin-bottom: 48px;
 }/*# sourceMappingURL=style.css.map */
