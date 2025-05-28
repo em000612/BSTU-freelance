@@ -1474,6 +1474,7 @@ body {
   font-size: 1.25rem;
   color: var(--bg-dark);
   border-radius: 10px;
+  font-family: "Aclonica";
 }
 
 .calculator-select {
@@ -1502,6 +1503,7 @@ body {
   font-size: 1.25rem;
   color: var(--bg-dark);
   border-radius: 10px;
+  font-family: "Aclonica";
 }
 
 .calculator-form-container > :not(:last-child) {

@@ -63,19 +63,20 @@
                     <form class="calculator-form-container">
                         <div class="calculator-text-field-container">
                             <div class="calculator-text-field-label">Type of service</div>
-                            <select id="selected-zone" class="calculator-text-field calculator-select">
+                            <select id="selected-Service" class="calculator-text-field calculator-select">
                                 <option hidden disabled>Select type of service</option>
-                                <option value="green">Economic</option>
-                                <option value="orange">IT</option>
+                                <option value="economic">Economic</option>
+                                <option value="IT">IT</option>
                                
                             </select>
                         </div>
                         <div class="calculator-text-field-container">
-                            <div class="calculator-text-field-label">Service cost</div>
-                            <input id="order-price" class="calculator-text-field" type="text" maxlength="6" placeholder="Введите стоимость вашей услуги" />
+                            <div class="calculator-text-field-label">Service count</div>
+                            <input id="order-price" class="calculator-text-field" type="text" maxlength="6" placeholder="Enter the count of your service" />
                         </div>
                         <div class="calculate-container">
-                            <input class="calculator-text-field-readonly" readonly disabled />
+                          <input class="calculator-text-field-readonly" readonly />
+
                             <input class="calculator-form-button" type="button" value="Calculate" />
                         </div>
                     </form>
@@ -130,3 +131,6 @@
                     <p class="service-item">Software Development</p>
                 </div>
             </footer>
+                 <script src="calc.js"></script>
+    </body>
+  </html>

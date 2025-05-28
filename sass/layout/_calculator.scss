@@ -64,6 +64,7 @@
     margin-bottom: 8px; 
     border-radius: 10px;
     
+    
 }
 
 .calculator-text-field {
@@ -75,6 +76,7 @@
     font-size: 1.25rem;
     color: var(--bg-dark);
     border-radius: 10px; 
+      font-family: "Aclonica";
 }
 
 .calculator-select {
@@ -101,6 +103,7 @@
     font-size: 1.25rem;
     color: var(--bg-dark);
     border-radius: 10px; 
+      font-family: "Aclonica"; 
 }
 
 .calculator-form-container > :not(:last-child) {
