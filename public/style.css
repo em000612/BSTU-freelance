@@ -249,6 +249,26 @@ body {
   width: 100%;
 }
 
+/* Стили для навигации */
+.navigation-item {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navigation-item[href="calc.html"] {
+  color: #0d0c55;
+}
+
+.navigation-item[href="calc.html"]:hover {
+  color: #0d0c55;
+}
+
 .container {
   padding-inline: 2%;
 }
