@@ -58,24 +58,25 @@
             <main>
             <!--здесь секция калькулятора -->
            <div class="calculator-container">
-                    <h1 class="calculator-title">Расчет стоимости услуги</h1>
+             <h2 class="calculator-section-title">Calculator</h2>
+                    <h1 class="calculator-title">Calculation of service cost</h1>
                     <form class="calculator-form-container">
                         <div class="calculator-text-field-container">
-                            <div class="calculator-text-field-label">Вид услуги</div>
+                            <div class="calculator-text-field-label">Type of service</div>
                             <select id="selected-zone" class="calculator-text-field calculator-select">
-                                <option hidden disabled>Выберите вид услуги</option>
-                                <option value="green">Экономика</option>
+                                <option hidden disabled>Select type of service</option>
+                                <option value="green">Economic</option>
                                 <option value="orange">IT</option>
                                
                             </select>
                         </div>
                         <div class="calculator-text-field-container">
-                            <div class="calculator-text-field-label">Стоимость услуги</div>
+                            <div class="calculator-text-field-label">Service cost</div>
                             <input id="order-price" class="calculator-text-field" type="text" maxlength="6" placeholder="Введите стоимость вашей услуги" />
                         </div>
                         <div class="calculate-container">
                             <input class="calculator-text-field-readonly" readonly disabled />
-                            <input class="calculator-form-button" type="button" value="Рассчитать" />
+                            <input class="calculator-form-button" type="button" value="Calculate" />
                         </div>
                     </form>
                 </div>
