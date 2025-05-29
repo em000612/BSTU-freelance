@@ -1,0 +1,112 @@
+.calculator-container {
+    padding: 48px 4%;
+    background-color: var(--white); 
+}
+
+.calculator-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 48px;
+    font-family: "Aclonica", sans-serif;
+    color: var(--white);
+}
+
+.calculator-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-form-button {
+    width: 100%;
+    max-width: 200px;
+    background-color: var(--dark-blue); 
+    border: 0;
+    outline: none;
+    padding: 12px 32px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white);
+    align-self: center;
+    font-family: inherit;
+    border-radius: 20px; 
+}
+.calculator-section-title {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--brand-black);
+    margin-bottom: 32px;
+    font-family: "Aclonica"; 
+}
+
+.calculator-form-button:hover {
+    background-color: var(--dark-blue); 
+     font-family: "Aclonica";
+}
+
+.calculator-text-field-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+     font-family: "Aclonica";
+}
+
+.calculator-text-field-label {
+    text-align: center;
+    background-color: var(--dark-blue); 
+    padding: 12px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white); 
+    margin-bottom: 8px; 
+    border-radius: 10px;
+    
+    
+}
+
+.calculator-text-field {
+    width: 100%;
+    background-color: var(--white);
+    border: 1px solid var(--dark-blue);
+    outline: 0;
+    padding: 12px;
+    font-size: 1.25rem;
+    color: var(--bg-dark);
+    border-radius: 10px; 
+      font-family: "Aclonica";
+}
+
+.calculator-select {
+    position: relative;
+    appearance: none;
+      font-family: "Aclonica"; 
+}
+
+.calculate-container {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap: 12px;
+      font-family: "Aclonica"; 
+}
+
+.calculator-text-field-readonly {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--white);
+    border: 1px solid var(--dark-blue);
+    outline: 0;
+    padding: 12px;
+    font-size: 1.25rem;
+    color: var(--bg-dark);
+    border-radius: 10px; 
+      font-family: "Aclonica"; 
+}
+
+.calculator-form-container > :not(:last-child) {
+    margin-bottom: 32px;
+    
+}

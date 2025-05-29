@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+    
+    <html lang="en"> 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <link rel="stylesheet" href="style.css" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Aclonica&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Abril+Fatface&family=Aclonica&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Aboreto&family=Abril+Fatface&family=Aclonica&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <title>iT Freelance Pro</title>
+    </head>
+    <body>
+        <div class="page">
+            <header class="header">
+                <div class="navigation-container">
+                    <img class="navigation-logo" src="./assets/logotype.svg" alt="iT Freelance Pro" >
+
+                    <nav class="navigation-section">
+                        <a class="navigation-item" href="#services">services</a>
+                        <a class="navigation-item" href="#prices">prices</a>
+                        <a class="navigation-item" href="#asks">asks</a>
+                    </nav>
+
+                    <nav class="menu">
+                        <input id="menu-toggle" type="checkbox">
+                        
+                        <label class="menu-btn" for="menu-toggle">
+                          <span></span>
+                        </label>
+                      
+                        <!-- Чёрный фон (накладывается на всё содержимое) -->
+                        <div class="menu-overlay"></div>
+                      
+                        <!-- Меню -->
+                        <div class="menu__box">
+                            <a class="menu__item" href="#">About us</a>
+                            <a class="menu__item" href="#">Services</a>
+                            <a class="menu__item" href="#">Industries</a>
+                            <a class="menu__item" href="#">Price</a>
+                            <a class="menu__item" href="#">Contacts</a>
+                        </div>
+                        
+                      </nav>
+
+
+                </div>
+
+                <div class="company-slogan-container">
+                    <div class="line">
+                        <h1 class="slogan-text">Help in developing and finalizing your tasks</h1>
+                    </div>
+                </div>
+            </header>
+            <main>
+            <!--здесь секция калькулятора -->
+           <div class="calculator-container">
+             <h2 class="calculator-section-title">Calculator</h2>
+                    <h1 class="calculator-title">Calculation of service cost</h1>
+                    <form class="calculator-form-container">
+                        <div class="calculator-text-field-container">
+                            <div class="calculator-text-field-label">Type of service</div>
+                            <select id="selected-Service" class="calculator-text-field calculator-select">
+                                <option hidden disabled>Select type of service</option>
+                                <option value="economic">Economic</option>
+                                <option value="IT">IT</option>
+                               
+                            </select>
+                        </div>
+                        <div class="calculator-text-field-container">
+                            <div class="calculator-text-field-label">Service count</div>
+                            <input id="order-price" class="calculator-text-field" type="text" maxlength="6" placeholder="Enter the count of your service" />
+                        </div>
+                        <div class="calculate-container">
+                          <input class="calculator-text-field-readonly" readonly />
+
+                            <input class="calculator-form-button" type="button" value="Calculate" />
+                        </div>
+                    </form>
+                </div>
+                </main>
+
+
+                
+            <footer class="footer">
+                <div class="contacts-block">
+                    <img class="logo" src="./assets/svg/logo.svg" alt="logo icon" >
+
+                    <a class="company-email" href="mailto:itfreelancepro@gmail.com">itfreelancepro@gmail.com</a>
+
+                    <div class="social-media-container">
+                        <img class="icon-container" src="./assets/svg/social/instagram.svg" alt="instagram" >
+                        <img class="icon-container" src="./assets/svg/social/whatsapp.svg" alt="whatsapp" >
+                        <img class="icon-container" src="./assets/svg/social/facebook.svg" alt="facebook" >
+                        <img class="icon-container" src="./assets/svg/social/linkedin.svg" alt="linkedin" >
+                    </div>
+
+                    <button class="contact-us-button custom-button"> 
+                        <span class="form-button-label custom-label">contact us</span>
+                        <img class="form-button-icon custom-icon" src="./assets/svg/form_arrow_white.svg" alt="">
+                    </button>
+                </div>
+
+                <div class="offices-block">
+                    <h2 class="offices-title">our offices</h2>
+
+                    <div class="offices-address-container">
+                        <p class="office-city">In Minsk</p>
+                        <p class="office-address">+ 375 (29) 675-12-22</p>
+                        <p class="office-address">44 Karl Liebknecht Street, floor 5, office 522</p>
+                    </div>
+
+                    <div class="developer-container">
+                        <h3 class="developer-title">developer</h3>
+                        <p class="developer-contact">Shelest Maria EM-6</p>
+                        <p class="developer-contact">+375336235499</p>
+                    </div>
+                </div>
+
+                <div class="services-block">
+                    <h2 class="service-title">services</h2>
+
+                    <p class="service-item">Technical support</p>
+                    <p class="service-item">Frontend Development</p>
+                    <p class="service-item">Backend Development</p>
+                    <p class="service-item">Mobile app Development</p>
+                    <p class="service-item">UI/UX Design</p>
+                    <p class="service-item">Software Development</p>
+                </div>
+            </footer>
+                 <script src="calc.js"></script>
+    </body>
+  </html>
