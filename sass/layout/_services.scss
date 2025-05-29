@@ -1,0 +1,264 @@
+.container {
+    padding-inline: 2%;
+
+    .services-title {
+        font-family: "Aclonica", sans-serif;
+        color: var(--light);
+        font-size: 32pt;
+        margin-bottom: 64px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 24pt;
+        }
+
+        @media screen and (max-width: 320px) {
+            font-size: 18pt;
+        }
+    }
+}
+
+.slider {
+    position: relative;
+    height: auto;
+
+    .count_6 {
+        display: grid;
+        width: 100%;
+        gap: 32px 16px;
+        padding: 30px 0;
+        justify-items: center;
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr); // 3 столбца по умолчанию
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr); // сохраняем 3 столбца
+            gap: 24px 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr); // 2 столбца
+            gap: 24px 16px;
+
+            // Показываем только первые 2 карточки из блока count 4
+            > :nth-child(1),
+            > :nth-child(2) {
+                display: block; // Показываем только первые 2 карточки
+            }
+
+            // Скрываем все карточки начиная с 3-й
+            > :nth-child(n+3) {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            grid-template-columns: 1fr; // 1 колонка
+            gap: 16px 8px;
+
+            > :nth-child(n+2) {
+                display: none; // скрываем все карточки после первой (т.е. начиная с 2-й)
+            }
+        }
+    }
+
+    .slider_left,
+    .slider_right {
+        display: none;
+    }
+
+    .slider_left.active,
+    .slider_center.active,
+    .slider_right.active {
+        display: block;
+    }
+}
+
+
+
+.card-item {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    background-color: var(--bg-dark);
+    padding: 25px 12px;
+    box-sizing: border-box;
+
+    .card-text {
+        font-family: Arial, sans-serif;
+        font-weight: 700;
+        color: var(--white);
+        font-size: 14pt;
+        padding-inline: 16px;
+        margin-bottom: 32px;
+        text-align: center;
+
+        @media screen and (max-width: 768px) {
+           font-size: 10pt;
+        }
+    }
+
+    .card-image {
+        width: 100%;
+        padding-inline: 6px;
+        border-radius: 12px;
+    }
+}
+
+#photo__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#photo__slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo__container {
+    display: flex;
+    position: absolute;
+    width: 300%;
+    left: -100%;
+}
+
+#slider-controls-left,
+#slider-controls-right {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: calc(50% - 24px);
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 2;
+}
+
+#slider-controls-left {
+    left: 16px;
+}
+
+#slider-controls-right {
+    right: 16px;
+}
+
+.photo__item-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 64px 16px;
+    width: 100%;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 320px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.button_color {
+    color: white;
+    background-color: #0d0c55;
+}
+
+.button {
+    width: 140px;
+    height: 34px;
+    font-size: 20px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+    border: 2px solid #0d0c55;
+    cursor: pointer;
+    word-wrap: break-word;
+
+    & &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+        height: 32px;
+        line-height: 32px;
+    }
+
+    @media (max-width: 320px) {
+        font-size: 16px;
+        height: 28px;
+        line-height: 28px;
+    }
+}
+
+.arrows-container {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    .arrow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+
+// slide animations
+.slide-container-left {
+    animation-name: slide-container-left;
+    animation-duration: 1s;
+}
+
+@keyframes slide-container-left {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+.slide-container-right {
+    animation-name: slide-container-right;
+    animation-duration: 1s;
+}
+
+@keyframes slide-container-right {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: -200%;
+    }
+}

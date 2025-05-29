@@ -1,0 +1,213 @@
+.footer {
+    border-top: 1px solid var(--light-opacity50);
+    padding: 24px 4% 80px 4%;
+    gap: 16px;
+    justify-content: space-between;
+    font-family: "ABeeZee", sans-serif;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contacts-block {
+    display: flex;
+    flex-direction: column;
+
+    & .logo {
+        width: 40px;
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 768px) {
+            width: 32px;
+        }
+    
+        @media screen and (max-width: 320px) {
+            width: 24px;
+        }
+    }
+
+    & .company-email {
+        text-decoration: underline;
+        color: var(--blue);
+        font-size: 16pt;
+        margin-bottom: 24px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 10pt;
+        }
+    }
+
+    & .social-media-container {
+        display: flex;
+        column-gap: 8px;
+
+        & .icon-container {
+            display: block;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+                width: 48px;
+                height: 48px;
+            }
+        
+            @media screen and (max-width: 320px) {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
+    & .contact-us-button {
+        border: 0;
+        background-color: var(--blue);
+        width: fit-content;
+        margin-top: 48px;
+
+        & .form-button-label {
+            color: var(--white);
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
+
+.offices-block {
+    display: flex;
+    flex-direction: column;
+
+    & .offices-title {
+        color: var(--light);
+        font-size: 18pt;
+        margin-bottom: 48px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 16pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 14pt;
+        }
+    }
+
+    & .offices-address-container {
+        margin-bottom: 24px;
+
+        & .office-city {
+            color: var(--blue);
+            font-size: 16pt;
+
+            @media screen and (max-width: 768px) {
+                font-size: 14pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 12pt;
+            }
+        }
+
+        & .office-address {
+            color: var(--light-opacity50);
+            font-size: 16pt;
+
+            @media screen and (max-width: 768px) {
+                font-size: 14pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 12pt;
+            }
+        }
+
+        & :not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    & .developer-container {
+
+        & .developer-title {
+            color: var(--light);
+            font-size: 18pt;
+            margin-bottom: 16px;
+
+            @media screen and (max-width: 768px) {
+                font-size: 16pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 14pt;
+            }
+        }
+
+        & .developer-contact {
+            color: var(--blue);
+            font-size: 16pt;
+
+            @media screen and (max-width: 768px) {
+                font-size: 14pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 12pt;
+            }
+        }
+    }
+}
+
+.services-block {
+    display: flex;
+    flex-direction: column;
+
+    & .service-title {
+        color: var(--light);
+        font-size: 18pt;
+        margin-bottom: 28px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 16pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 14pt;
+        }
+    }
+
+    & .service-item {
+        color: var(--blue);
+        font-size: 16pt;
+        cursor: pointer;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 14pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 12pt;
+        }
+    }
+
+    & .service-item:not(:last-child) {
+        margin-bottom: 32px;
+    }
+}

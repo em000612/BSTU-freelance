@@ -1,0 +1,79 @@
+.price-section {
+    padding: 20px 2%;
+    display: flex;
+    flex-direction: column;
+
+    & .price-section-title {
+        font-family: "Aclonica", sans-serif;
+        font-size: 45pt;
+        color: var(--light);
+
+        @media screen and (max-width: 768px) {
+            font-size: 32pt;
+        }
+    
+        @media screen and (max-width: 320px) {
+            font-size: 24pt;
+        }
+    }
+}
+
+.price-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    column-gap: 32px;
+    row-gap: 18px;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    & .price-item {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 3% 20px 3%;
+        border: 1px solid var(--light-opacity50);
+        border-radius: 40px;
+
+        font-family: "ABeeZee", sans-serif;
+        font-weight: 400;
+        width: 100%;
+        & .price-service-title {
+            color: var(--light);
+            font-size: 16pt;
+            padding-bottom: 16px;
+
+            @media screen and (max-width: 768px) {
+                font-size: 14pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 12pt;
+            }
+        }
+
+        & .price-service-description {
+            color: var(--light-opacity70);
+            font-size: 14pt;
+            white-space: pre-line;
+
+            @media screen and (max-width: 768px) {
+                font-size: 12pt;
+            }
+        
+            @media screen and (max-width: 320px) {
+                font-size: 10pt;
+            }
+        }
+    }  
+    
+    & .price-service-image {
+        display: block;
+        border-radius: 40px;
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+        width: 100%;
+    }
+}
+ 

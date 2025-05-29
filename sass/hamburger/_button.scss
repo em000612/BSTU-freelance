@@ -1,0 +1,63 @@
+@import "../hamburger/variables";
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: $menu-btn-size;
+  height: $menu-btn-size;
+  background: transparent;
+  z-index: 2;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: $menu-item-color;
+  transition: 0.25s;
+}
+
+.menu-btn span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu-btn span::after {
+  content: '';
+  top: 8px;
+}
+
+#menu-toggle {
+  display: block;
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-btn span {
+  transform: rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-btn span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+
+#menu-toggle:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
